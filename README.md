@@ -31,10 +31,17 @@ HTTP Api Example
 Follow the "RESTful API Design Guide" in [ruanyifeng blog](http://www.ruanyifeng.com/blog/2014/05/restful_api.html "http://www.ruanyifeng.com/blog/2014/05/restful_api.html")
 
   GET /zoos：List all the zoos
+  
   POST /zoos： Add a new zoo
+  
   GET /zoos/ID：Get information from target zoo
+  
   PUT /zoos/ID：Update information for target zoo (must provide all the information)
+  
   PATCH /zoos/ID：Update information for target zoo (provide parts of information)
+  
   DELETE /zoos/ID：Delete the target zoo
+  
   GET /zoos/ID/animals：List all the animals in target zoo
+  
   DELETE /zoos/ID/animals/ID：Delete the target animal in target zoo
