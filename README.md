@@ -12,7 +12,7 @@ mvn clean package
 ```
 run
 ```
-java -jar target/boot-0.0.1-SNAPSHOT.jar
+java -jar target/bootZoo-0.0.1-SNAPSHOT.jar
 ```
 build and run
 ```
