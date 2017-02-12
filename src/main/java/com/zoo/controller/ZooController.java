@@ -65,9 +65,10 @@ public class ZooController {
     	return zooService.patchZooById(id, zooInfo);
     }
     
-    @RequestMapping(value="/{id}", method=RequestMethod.DELETE)
+	@RequestMapping(value="/{id}", method=RequestMethod.DELETE)
     public SuccessInfo deleteZooById(@PathVariable("id") Long id) {
-    	return zooService.deleteZooById(id);
+    	zooService.deleteZooById(id);
+    	return new SuccessInfo();
     }
     
 }

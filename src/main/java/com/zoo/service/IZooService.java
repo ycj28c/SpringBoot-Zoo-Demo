@@ -3,7 +3,6 @@ package com.zoo.service;
 import java.util.Map;
 
 import com.zoo.entity.Zoo;
-import com.zoo.service.exception.SuccessInfo;
 import com.zoo.service.exception.ZooNullException;
 
 public interface IZooService {
@@ -18,6 +17,6 @@ public interface IZooService {
 
 	public Zoo patchZooById(Long id, Zoo zooInfo) throws ZooNullException;
 
-	public SuccessInfo deleteZooById(Long id);
+	public void deleteZooById(Long id);
 
 }

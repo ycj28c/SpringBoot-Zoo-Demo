@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 import com.zoo.entity.Zoo;
 import com.zoo.entity.ZooDataBase;
-import com.zoo.service.exception.SuccessInfo;
 import com.zoo.service.exception.ZooNullException;
 
 @Service
@@ -53,8 +52,7 @@ public class ZooServiceImpl implements IZooService {
 	}
 
 	@Override
-	public SuccessInfo deleteZooById(Long id) {
+	public void deleteZooById(Long id) {
 		ZooDataBase.getZoosMap().remove(id);
-		return new SuccessInfo();
 	}
 }

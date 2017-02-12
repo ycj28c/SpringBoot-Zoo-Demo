@@ -1,13 +1,16 @@
 package com.zoo.service.exception;
 
 public class SuccessInfo {
-	private static final Integer OK = 200;
-
-	@SuppressWarnings("unused")
-	private Integer code;
+	private String status = "OK";
 	
 	public SuccessInfo(){
-		this.code = OK;
 	}
 
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
 }

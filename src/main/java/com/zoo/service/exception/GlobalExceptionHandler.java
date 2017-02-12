@@ -18,17 +18,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @ControllerAdvice //global exception handler
 public class GlobalExceptionHandler {
 	
-    @ExceptionHandler(value = ZooAlreadyExistsException.class)
-    @ResponseStatus(HttpStatus.CONFLICT)
-    @ResponseBody
-    public ErrorInfo<String> jsonErrorHandler(HttpServletRequest req, ZooAlreadyExistsException e) throws Exception {
-        ErrorInfo<String> r = new ErrorInfo<String>();
-        r.setMessage(e.getMessage());
-        r.setCode(HttpStatus.CONFLICT.value());
-        r.setUrl(req.getRequestURL().toString());
-        return r;
-    }
-    
     @ExceptionHandler(value = ZooNullException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ResponseBody
