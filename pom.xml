@@ -50,7 +50,7 @@
                     <target>${java.version}</target>
                 </configuration>
             </plugin>
-            <!-- spring热部署配置 -->
+            <!-- spring hot configuration -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>

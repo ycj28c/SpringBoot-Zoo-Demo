@@ -47,7 +47,7 @@ public class ZooServiceImpl implements IZooService {
 		if(ZooDataBase.getZoosMap().get(id) == null){
 			throw new ZooNullException("Found null zoo with id " + id);
 		} else {
-			ZooDataBase.getZoosMap().replace(id, zooInfo);
+			Zoo.update(zooInfo, ZooDataBase.getZoosMap().get(id));
 			return ZooDataBase.getZoosMap().get(id);
 		}
 	}

@@ -1,8 +1,8 @@
 package com.zoo.entity;
 
 public class Animal {
-	int id;
-	String name;
+	private int id;
+	private String name;
 	
 	public Animal(int id, String name){
 		this.id = id;
