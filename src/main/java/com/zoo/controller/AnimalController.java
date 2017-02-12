@@ -1,6 +1,9 @@
 package com.zoo.controller;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 
 import java.util.List;
 
@@ -23,11 +26,16 @@ public class AnimalController {
 	@Autowired
 	private IAnimalService animalService;
 
+	@ApiOperation(value="List all animals in target zoo")
 	@RequestMapping(value = "/{id}/animals", method = RequestMethod.GET)
 	public List<Animal> getAnimals(@PathVariable("id") Long id) throws ZooNullException {
 		return animalService.getAnimalsList(id);
 	}
 
+	@ApiOperation(value="Delete the target animal in target zoo")
+    @ApiResponses({ //swagger - describe return status code
+        @ApiResponse(code=200,message="Delete success"),
+    })
 	@RequestMapping(value = "/{id}/animals/{animalId}", method = RequestMethod.DELETE)
 	public SuccessInfo deleteZooById(@PathVariable("id") Long id, @PathVariable("animalId") Integer animalId) {
 		animalService.deleteAnimalById(id, animalId);

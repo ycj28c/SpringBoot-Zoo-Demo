@@ -2,6 +2,7 @@ package com.zoo;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -22,9 +23,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class SwaggerConfig {
 
-
     /**
-     * swagger摘要bean
+     * swagger summary bean
      * @return
      */
     @Bean
@@ -32,24 +32,23 @@ public class SwaggerConfig {
         Docket docket = new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("org.cent.demo.spring_boot_swagger.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.zoo.controller"))
                 .paths(PathSelectors.any())
-                .build()
-                ;
-
+                .build();
         return docket;
     }
 
     /**
-     * API文档主信息对象
+     * API document major information
      * @return
      */
     private ApiInfo apiInfo(){
         ApiInfo apiInfo= (new ApiInfoBuilder())
-                .title("Spring Boot集成Swagger项目")
-                .description("Spring Boot集成Swagger的Demo API")
-                .termsOfServiceUrl("http://localhost:8080/")
-                .contact(new Contact("cent","","292462859@qq.com"))
+                .title("Spring Boot Integrate With Swagger Zoo Demo")
+                .description("Spring Boot Integrate Swagger")
+                .termsOfServiceUrl("https://localhost:8080")
+                .license("MIT License")
+                .contact(new Contact("Ralph Yang","https://github.com/ycj28c","cyangjob@gmail.com"))
                 .version("1.0")
                 .build();
         return apiInfo;

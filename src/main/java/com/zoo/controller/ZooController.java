@@ -1,6 +1,9 @@
 package com.zoo.controller;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 
 import java.util.Map;
 
@@ -22,49 +25,52 @@ import com.zoo.service.exception.ZooNullException;
 
 @RestController
 @RequestMapping("/zoos")
-@Api("Zoo Controller API") //describe the API
+@Api("Zoo Controller API") //swagger - describe the API
 public class ZooController {
 
     @Autowired
     private IZooService zooService;
     
-//    @Autowired
-//    private MyRedisTemplate myRedisTemplate;
-
-//    @ApiOperation("List all the zoos") //swagger - what is this method doing
-//    @ApiImplicitParams({ //swagger - 
-//        @ApiImplicitParam(paramType="header",name="username",dataType="String",required=true,value="用户的姓名",defaultValue="zhaojigang"),
-//        @ApiImplicitParam(paramType="query",name="password",dataType="String",required=true,value="用户的密码",defaultValue="wangna")
-//    })
-//    @ApiResponses({ //swagger - describe code meaning
-//        @ApiResponse(code=400,message="请求参数没填好"),
-//        @ApiResponse(code=404,message="请求路径没有或页面跳转路径不对")
-//    })
+    @ApiOperation(value="List all the zoos", notes="") //swagger - describe the method
     @RequestMapping(method=RequestMethod.GET)
 	public Map<?, ?> getZoos() {
 	  return zooService.getZoosList();
 	}
     
+    @ApiOperation(value="Add new zoo", notes="Need provie correct animalList")
+//    @ApiImplicitParams({
+//        @ApiImplicitParam(name = "name", value = "The zoo name", required = true, dataType = "String"),
+//        @ApiImplicitParam(name = "address", value = "The zoo address", required = true, dataType = "String"),
+//        @ApiImplicitParam(name = "website", value = "The zoo website", required = true, dataType = "String"),
+//        @ApiImplicitParam(name = "animalsList", value = "The animals list in the zoo", required = true, dataType = "List")
+//    })
     @RequestMapping(method=RequestMethod.POST)
     public Zoo postZoos(@RequestBody Zoo zooInfo) { //@RequestBody only accept the JSON data
     	return zooService.postZoos(zooInfo);
     }
     
+    @ApiOperation(value="Get the target zoo information")
     @RequestMapping(value="/{id}", method=RequestMethod.GET)
     public Zoo getZooById(@PathVariable("id") Long id) throws ZooNullException {
     	return zooService.getZooById(id);
     }
     
+    @ApiOperation(value="Update the target zoo information", notes="Need provie all zoo information")
     @RequestMapping(value="/{id}", method=RequestMethod.PUT)
     public Zoo putZooById(@PathVariable("id") Long id, @RequestBody Zoo zooInfo) {
     	return zooService.putZooById(id, zooInfo);
     }
     
+    @ApiOperation(value="Update the target zoo information", notes="Allow to provie parts of zoo information")
     @RequestMapping(value="/{id}", method=RequestMethod.PATCH)
     public Zoo patchZooById(@PathVariable("id") Long id, @RequestBody Zoo zooInfo) throws ZooNullException {
     	return zooService.patchZooById(id, zooInfo);
     }
     
+    @ApiOperation(value="Delete the target zoo")
+    @ApiResponses({ //swagger - describe return status code
+        @ApiResponse(code=200,message="Delete success"),
+    })
 	@RequestMapping(value="/{id}", method=RequestMethod.DELETE)
     public SuccessInfo deleteZooById(@PathVariable("id") Long id) {
     	zooService.deleteZooById(id);
