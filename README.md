@@ -16,7 +16,7 @@ java -jar target/boot-0.0.1-SNAPSHOT.jar
 ```
 build and run
 ```
-mvn clean package && java -jar target/boot-0.0.1-SNAPSHOT.jar
+mvn clean package && java -jar target/bootZoo-0.0.1-SNAPSHOT.jar
 ```
 
 * Use IDE such as eclipse
