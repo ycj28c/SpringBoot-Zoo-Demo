@@ -1,4 +1,4 @@
-# Springboot Zoo Demo
+# Springboot Zoo Demo [![Build Status](https://travis-ci.org/ycj28c/SpringBoot-Zoo-Demo.svg?branch=master)](https://travis-ci.org/ycj28c/SpringBoot-Zoo-Demo)
 A simple demo for springboot & swagger of zoo
 
 Build And Run
