@@ -22,6 +22,36 @@ mvn clean package && java -jar target/bootZoo-0.0.1-SNAPSHOT.jar
 * Use IDE such as eclipse
 run com/zoo/ZooApplication.java
 
+Deploy In EC2
+-------------
+Want to run springboot in AWS ubuntu node as daemon process, please check [59. Installing Spring Boot applications](https://docs.spring.io/spring-boot/docs/current/reference/html/deployment-install.html)
+
+1. crate a bootzoodemo.service service
+```
+ubuntu~@$ cd /etc/systemd/system
+ubuntu~@$ sudo vi bootzoodemo.service
+```
+2. add below content to bootzoodemo.service
+```
+[Unit]
+Description=bootzoodemo
+After=syslog.target
+
+[Service]
+User=ubuntu
+ExecStart=/opt/bootZoo/bootZoo-0.0.1-SNAPSHOT.jar
+SuccessExitStatus=143
+
+[Install]
+WantedBy=multi-user.target
+```
+
+3. register service and run in daemon
+```
+ubuntu~@$ sudo systemctl enable bootzoodemo.service
+ubuntu~@$ sudo service bootzoodemo start
+```
+
 Access Swagger HTML
 -------------
 http://localhost:8080/swagger-ui.html
@@ -38,3 +68,5 @@ Follow the "RESTful API Design Guide" in [ruanyifeng blog](http://www.ruanyifeng
 + DELETE /zoos/ID：Delete the target zoo
 + GET /zoos/ID/animals：List all the animals in target zoo
 + DELETE /zoos/ID/animals/ID：Delete the target animal in target zoo
+
+
