@@ -26,7 +26,7 @@ Deploy In EC2
 -------------
 Want to run springboot in AWS ubuntu node as daemon process, please check [59. Installing Spring Boot applications](https://docs.spring.io/spring-boot/docs/current/reference/html/deployment-install.html)
 
-1. crate a bootzoodemo.service service
+1. create a bootzoodemo.service service
 ```
 ubuntu~@$ cd /etc/systemd/system
 ubuntu~@$ sudo vi bootzoodemo.service
