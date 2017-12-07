@@ -13,6 +13,7 @@ mvn clean package
 run
 ```
 java -jar target/bootZoo-0.0.1-SNAPSHOT.jar
+
 # if want to run in different port
 java -jar -Dserver.port=9999 target/bootZoo-0.0.1-SNAPSHOT.jar
 ```
@@ -43,6 +44,22 @@ After=syslog.target
 User=ubuntu
 ExecStart=/opt/bootZoo/bootZoo-0.0.1-SNAPSHOT.jar
 SuccessExitStatus=143
+
+[Install]
+WantedBy=multi-user.target
+```
+if run in different port
+```
+[Unit]
+Description=bootzoodemo
+After=syslog.target
+
+[Service]
+User=ubuntu
+ExecStart=/usr/bin/java -Dserver.port=9999 -jar /opt/bootZoo/bootZoo-0.0.1-SNAPSHOT.jar
+SuccessExitStatus=143
+Restart=on-failure
+RestartSec=5
 
 [Install]
 WantedBy=multi-user.target
