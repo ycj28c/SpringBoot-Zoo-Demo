@@ -13,6 +13,8 @@ mvn clean package
 run
 ```
 java -jar target/bootZoo-0.0.1-SNAPSHOT.jar
+# if want to run in different port
+java -jar -Dserver.port=9999 target/bootZoo-0.0.1-SNAPSHOT.jar
 ```
 build and run
 ```
