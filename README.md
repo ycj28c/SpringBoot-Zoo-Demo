@@ -83,6 +83,9 @@ Access Swagger HTML
 -------------
 http://localhost:8080/swagger-ui.html
 
+or demo here
+http://54.219.129.91:9999/swagger-ui.html
+
 HTTP Api Example
 -------------
 Follow the "RESTful API Design Guide" in [ruanyifeng blog](http://www.ruanyifeng.com/blog/2014/05/restful_api.html "http://www.ruanyifeng.com/blog/2014/05/restful_api.html")
