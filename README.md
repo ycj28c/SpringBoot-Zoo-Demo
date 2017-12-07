@@ -68,7 +68,15 @@ WantedBy=multi-user.target
 3. register service and run in daemon
 ```
 ubuntu~@$ sudo systemctl enable bootzoodemo.service
-ubuntu~@$ sudo service bootzoodemo start
+
+#ubuntu~@$ sudo service bootzoodemo start
+ubuntu~@$ sudo systemctl start bootzoodemo.service
+
+# check the running status
+ubuntu~@$ sudo systemctl status bootzoodemo.service
+
+# stop service
+ubuntu~@$ sudo systemctl stop bootzoodemo.service
 ```
 
 Access Swagger HTML
